@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var thirdContainer: UIView!
     var fourthContainer: UIView!
     
+    var titleLable: UILabel!
+    
     let kMarginForView:CGFloat = 10.0
     let kSixth:CGFloat = 1.0/6.0
     
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupContainerViews()
+        setupFirstContainer(self.firstContainer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,8 +50,18 @@ class ViewController: UIViewController {
         self.fourthContainer = UIView(frame: CGRect(x: self.view.bounds.origin.x + kMarginForView, y: firstContainer.frame.height + secondContainer.frame.height + thirdContainer.frame.height, width: self.view.bounds.width - (kMarginForView * 2), height: self.view.bounds.height * kSixth))
         self.fourthContainer.backgroundColor = UIColor.blackColor()
         self.view.addSubview(self.fourthContainer)
-        
-        
+    }
+    
+    
+    
+    func setupFirstContainer(containerView: UIView) {
+        self.titleLable = UILabel()
+        self.titleLable.text = "Super Slots"
+        self.titleLable.textColor = UIColor.yellowColor()
+        self.titleLable.font = UIFont(name: "MarkerFelt-Wide", size: 40)
+        self.titleLable.sizeToFit()
+        self.titleLable.center = containerView.center
+        containerView.addSubview(self.titleLable)
     }
 
 }
